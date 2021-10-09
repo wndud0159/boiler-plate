@@ -17,7 +17,6 @@ app.use(cookieParser())
 
 // useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false
 const mongoose = require('mongoose')
-const { request } = require('express')
 mongoose.connect(config.mongoURI)
     .then(() => console.log('MongoDB Connection...'))
     .catch(err => console.log(err))
