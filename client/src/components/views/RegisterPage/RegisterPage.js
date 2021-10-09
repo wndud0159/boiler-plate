@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { registerUser } from '../../../_actions/user_action'
+import {withRouter} from 'react-router-dom'
 
 function RegisterPage(props) {
     const dispatch = useDispatch()
@@ -49,10 +50,10 @@ function RegisterPage(props) {
     return (
         <div className=" flex items-center w-full justify-center h-screen">
             <form className=" flex flex-col" action="" onSubmit={onSubmitHandler}>
-                <label htmlFor="">Email</label>
-                <input className=" border outline-none  focus:ring-2" type="email" value={Email} onChange={onEmailHandler} />
                 <label htmlFor="">Name</label>
                 <input className=" border outline-none  focus:ring-2" type="text" value={Name} onChange={onNameHandler} />
+                <label htmlFor="">Email</label>
+                <input className=" border outline-none  focus:ring-2" type="email" value={Email} onChange={onEmailHandler} />
                 <label htmlFor="">Password</label>
                 <input className=" border outline-none  focus:ring-2" type="password" value={Password} onChange={onPasswordHandler} />
                 <label htmlFor="">Confirm Password</label>
@@ -65,4 +66,4 @@ function RegisterPage(props) {
     )
 }
 
-export default RegisterPage
+export default withRouter(RegisterPage)

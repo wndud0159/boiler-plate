@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-import { LOGIN_USER, REGISTER_USER } from './types'
+import { LOGIN_USER, REGISTER_USER, AUTH_USER } from './types'
 
 export function loginUser(dataToSubmit) {
 
@@ -9,7 +9,7 @@ export function loginUser(dataToSubmit) {
         console.log(response.data)
         return response.data
     }).catch(error => {
-        console.log('error : ', error)
+        console.log('error login : ', error)
     })
 
     return {
@@ -26,7 +26,7 @@ export function registerUser(dataToSubmit) {
           console.log(response.data)
           return response.data
       }).catch(error => {
-          console.log('error : ', error)
+          console.log('error register : ', error)
       })
   
       return {
@@ -34,4 +34,21 @@ export function registerUser(dataToSubmit) {
           payload: request
       }
   
-  }
+}
+
+export function auth() {
+
+    const request = axios.get('/api/users/auth')
+      .then(response => {
+          return response.data
+      }).catch(error => {
+          console.log('error auth : ', error)
+      })
+  
+      return {
+          type: AUTH_USER,
+          payload: request
+      }
+  
+}
+  
